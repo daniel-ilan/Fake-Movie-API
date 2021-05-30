@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Movie Info</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/movieInfo.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <%=movie.name %>
+        </h1>
+        <nav>
+            <div class="breadcrumbs">
+                <a href="/menu" class="breadcrums-link">Menu</a>
+                <span> / </span>
+                <a href="/movies/1" class="breadcrums-link">Movies</a>
+                <span> / </span>
+                <span class="breadcrums-text">
+                    <%=movie.name %>
+                </span>
+            </div>
+        </nav>
+    </header>
+    <main class="movie-display__wrapper">
+        <div class="movie-display__container">
+            <div class="movie-image__container">
+                <% if(movie.image) { %>
+                    <img loading="lazy" width="210" src=<%=movie.image.original %>
+                    class="movie-image"/>
+                    <% } else { %>
+                        <img loading="lazy" width="210" height="295" src="/images/placeholder-image.png"
+                            class="movie-image" />
+                        <% } %>
+            </div>
+            <div class="movie-info__container">
+                <h2>
+                    <%= movie.name %>
+                        <% if(movie.image) { %>
+                            <span>(<%= movie.premiered %>)</span>
+                            <% } else { %>
+                                <span>(Unkown premiere date)</span>
+                                <% } %>
+                </h2>
+                <h5>
+                    <% if(movie.image) { %>
+                        Rating: <%= movie.rating.average %>
+                            <% } else { %>
+                                Unkown rating
+                                <% } %>
+                </h5>
+                <h3>
+                    ID: <%= movie.id %>
+                </h3>
+                <h3>
+                    Genres: <%= movie.genres.join(', ') %>
+                </h3>
+                <h3>
+                    Language: <%= movie.language %>
+                </h3>
+                <p class="movie-text">
+                  Description:
+                </p>
+                <% if(movie.image) { %>
+                <%- movie.summary %>
+                <% } else { %>
+                    No description
+                    <% } %>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

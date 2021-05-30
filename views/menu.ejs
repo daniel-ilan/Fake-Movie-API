@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Menu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <main>
+        <h1>
+            Hi, <%= username %>
+        </h1>
+
+        <h2>your password is:</h2>
+        <%= password %>
+
+            <div>
+                <ul>
+                    <li><a href="/movies/1">All movies</a></li>
+                    <li><a href="/addmovie">Create movie</a></li>
+                    <% if (privileges==="Admin" ) { %>
+
+                        <li><a href="/users">Manage users</a></li>
+
+                        <% } %>
+                </ul>
+            </div>
+    </main>
+</body>
+
+</html>

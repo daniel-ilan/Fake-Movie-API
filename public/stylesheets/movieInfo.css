@@ -1,0 +1,38 @@
+.movie-image__container {
+  float: left;
+  margin-block: 20px;
+  min-width: 20%;
+}
+
+.movie-display__container {
+  padding: 50px;
+}
+
+.movie-display__container::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.movie-image {
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+.movie-info__container {
+  max-width: 75%;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 570px) {
+  .movie-display__container {
+    padding: 0;
+  }
+  .movie-image__container {
+    min-width: 100%;
+  }
+  .movie-info__container {
+    max-width: 100%;
+  }
+}

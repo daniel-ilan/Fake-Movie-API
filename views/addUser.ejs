@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Add User</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <h1>Create User</h1>
+    <p>Fill the form to create a new user</p>
+    <nav>
+      <div class="breadcrumbs">
+        <a href="/menu" class="breadcrums-link">Menu</a>
+        <span> / </span>
+        <a href="/users" class="breadcrums-link">Users</a>
+        <span> / </span>
+        <span class="breadcrums-text">
+          New user
+        </span>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="form-wrapper">
+
+    <form class="form" action="/users/new" method="post">
+      <div class="form-input-wrapper">
+        <label for="username" class="form-input-label">Name:</label>
+        <input type="text" name="username" class="form-input" />
+      </div>
+      <div class="form-input-wrapper">
+        <label for="password" class="form-input-label">Password:</label>
+        <input type="text" name="password" class="form-input" />
+      </div>
+      <input class="submit main-btn" type="submit" value="Add" />
+    </form>
+  </div>
+</body>
+
+</html>

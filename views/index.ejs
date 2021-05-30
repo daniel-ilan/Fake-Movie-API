@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Login</h1>
+  <p>Welcome to Fake Movies API!</p>
+
+  <div class="form-wrapper">
+    <% if (locals.messages) { %>
+
+      <script language="javascript">
+        alert("<%= messages.msg %>");
+      </script>
+
+      <% } %>
+
+        <form class="form" action="/login" method="post">
+          <div class="form-input-wrapper">
+            <label for="userName" class="form-input-label">Name:</label>
+            <input type="text" name="username" class="form-input" />
+          </div>
+          <div class="form-input-wrapper">
+            <label for="password" class="form-input-label">Password:</label>
+            <input type="text" name="password" class="form-input" />
+          </div>
+          <input class="submit main-btn" type="submit" value="login" />
+        </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All Movies</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/select.css">
+    <link rel="stylesheet" href="/stylesheets/movies.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Movies
+        </h1>
+        <nav>
+            <div class="breadcrumbs">
+                <a href="/menu" class="breadcrums-link">Menu</a>
+                <span> / </span>
+                <span class="breadcrums-text">Movies</span>
+            </div>
+        </nav>
+
+        <div class="movies-count"> Found <%=selectedMoviesCount %> movies</div>
+    </header>
+    <main class="movies-__wrapper">
+        <div class="movies-container">
+            <div class="movies-grid">
+                <% moviesInPage.forEach(movie=> { %>
+                    <div class="card">
+
+                        <div class="card-header">
+                            <% if(movie.image) { %>
+                                <img loading="lazy" width="210" height="295" src=<%=movie.image.medium %>
+                                class="card-image"/>
+                                <% } else { %>
+                                    <img loading="lazy" width="210" height="295" src="/images/placeholder-image.png"
+                                        class="card-image" />
+                                    <% } %>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/movies/info/<%= movie.id %>" class="card-link">
+                                <%= movie.name %>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            <div class="pagination__wrapper">
+                <% if(pages.previous) { %>
+                    <a class="pagination-link link-previous" href="<%= pages.previous.page %>">
+                        previous < </a>
+                            <% } %>
+                                <% if(pages.next) { %>
+                                    <a class="pagination-link link-next" href="<%= pages.next.page %>">
+                                        Next >
+                                    </a>
+                                    <% } %>
+            </div>
+        </div>
+        <div class="filter-movies__wrapper">
+            <div class="filters-container">
+                <h2>Filters:</h2>
+                <form action="/movies/filter/1" class="filters-form" method="POST">
+                    <div class="form-input-wrapper">
+                        <label for="movieName" class="form-input-label">Name:</label>
+                        <input type="text" name="movieName" class="form-input" />
+                    </div>
+                    <div class="custom-select">
+                        <select name="genre">
+                            <option value="0">Select Genre:</option>
+                            <% genres.forEach((genre, index)=> { %>
+                                <option value=<%=genre %> ><%=genre %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="custom-select">
+                        <select name="language">
+                            <option value="0">Select Language:</option>
+                            <% languages.forEach((language, index)=> { %>
+                                <option value=<%=language %> ><%=language %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <input class="submit main-btn" type="submit" value="Filter" />
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="/javascripts/customSelect.js"></script>
+</body>
+
+</html>

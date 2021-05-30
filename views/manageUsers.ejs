@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/manageUsers.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Manage users
+        </h1>
+        <nav>
+            <div class="breadcrumbs">
+                <a href="/menu" class="breadcrums-link">Menu</a>
+                <span> / </span>
+                <span class="breadcrums-text">Users</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+
+        <div class="table__wrapper">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% allUsersData.forEach(user=> { %>
+                    <tr>
+                        <td>
+                            <%= user.username %>
+                        </td>
+                        <td> <a href="/users/update/<%= user.id %>">Update</a>
+                        </td>
+                        <td> <a href="/users/delete/<%= user.id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                        <tr>
+                            <td colspan="3" class="new-user"> <a href="/users/new">+ Add New User +</a></td>
+                        </tr>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
